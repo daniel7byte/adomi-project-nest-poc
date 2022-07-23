@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/adomi-project/src",
+  "monorepo": true,
+  "root": "apps/adomi-project",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/adomi-project/tsconfig.app.json"
+  },
+  "projects": {
+    "adomi-project": {
+      "type": "application",
+      "root": "apps/adomi-project",
+      "entryFile": "main",
+      "sourceRoot": "apps/adomi-project/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/adomi-project/tsconfig.app.json"
+      }
+    },
+    "polygon-app": {
+      "type": "application",
+      "root": "apps/polygon-app",
+      "entryFile": "main",
+      "sourceRoot": "apps/polygon-app/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/polygon-app/tsconfig.app.json"
+      }
+    }
+  }
+}
