@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class AppService {
@@ -9,8 +10,9 @@ export class AppService {
     return 'Hello World!';
   }
 
-  getSum(): string {
-    this.client.emit('sum', { numbers: [1, 2, 3] });
-    return 'Hello World!';
+  getSum(): Observable<number> {
+    const pattern = { cmd: 'sum' };
+    const payload = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    return this.client.send<number>(pattern, payload);
   }
 }

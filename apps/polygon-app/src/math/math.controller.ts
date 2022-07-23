@@ -1,10 +1,10 @@
 import { Controller } from '@nestjs/common';
-import { EventPattern } from '@nestjs/microservices';
+import { MessagePattern } from '@nestjs/microservices';
 
 @Controller('math')
 export class MathController {
-  @EventPattern('sum')
-  async handleUserCreated(data: any) {
-    console.log(data);
+  @MessagePattern({ cmd: 'sum' })
+  accumulate(data: number[]): number {
+    return (data || []).reduce((a, b) => a + b);
   }
 }
