@@ -14,7 +14,7 @@ COPY package*.json ./
 RUN npm install typescript
 RUN npm install -g ts-node
 RUN npm install --only=production
-RUN npm build
+RUN npm run build
 
 # Copy local code to the container image.
 COPY . .
