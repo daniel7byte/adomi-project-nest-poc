@@ -13,7 +13,7 @@ COPY . .
 # Service must listen to $PORT environment variable.
 # This default value facilitates local development.
 ENV PORT 8080
-ENV APPLICATION ${_APPLICATION || APPLICATION}
+ENV APPLICATION ${_APPLICATION}
 EXPOSE ${PORT}
 
 # Install production dependencies.
