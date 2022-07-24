@@ -12,7 +12,7 @@ COPY . .
 
 # Install production dependencies.
 RUN npm ci
-RUN npm run build
+RUN npm run build polygon-app
 
 # Service must listen to $PORT environment variable.
 # This default value facilitates local development.
