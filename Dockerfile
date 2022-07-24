@@ -17,6 +17,7 @@ RUN npm run build
 # Service must listen to $PORT environment variable.
 # This default value facilitates local development.
 ENV PORT 8080
+EXPOSE ${PORT} 
 
 # Run the web service on container startup.
 CMD [ "npm", "start", "prod" ]
