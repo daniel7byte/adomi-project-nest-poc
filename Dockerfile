@@ -10,14 +10,15 @@ WORKDIR /usr/src/app
 # Copying this separately prevents re-running npm install on every code change.
 COPY . .
 
-# Install production dependencies.
-RUN npm ci
-RUN npm run build ${application}
-
 # Service must listen to $PORT environment variable.
 # This default value facilitates local development.
 ENV PORT 8080
+ENV APPLICATION ${_APPLICATION || APPLICATION}
 EXPOSE ${PORT}
 
+# Install production dependencies.
+RUN npm ci
+RUN npm run build ${APPLICATION}
+
 # Run the web service on container startup.
-CMD [ "npm", "start", "prod", ${application}]
+CMD [ "npm", "start", "prod", ${APPLICATION}]
