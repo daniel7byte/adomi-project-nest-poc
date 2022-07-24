@@ -12,12 +12,12 @@ COPY . .
 
 # Install production dependencies.
 RUN npm ci
-RUN npm run build
+RUN npm run build ${application}
 
 # Service must listen to $PORT environment variable.
 # This default value facilitates local development.
 ENV PORT 8080
-EXPOSE ${PORT} 
+EXPOSE ${PORT}
 
 # Run the web service on container startup.
-CMD [ "npm", "start", "prod" ]
+CMD [ "npm", "start", "prod", ${application}]
