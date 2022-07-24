@@ -17,7 +17,7 @@ EXPOSE ${PORT}
 
 # Install production dependencies.
 RUN npm ci
-RUN npm run build
+RUN npm run build polygon-app
 
 # Run the web service on container startup.
-CMD [ "npm", "start", "prod"]
+CMD [ "npm", "start", "prod", "polygon-app"]
